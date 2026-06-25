@@ -1,0 +1,51 @@
+name: 🐞 Superpower bug (wrong or misleading output)
+description: Report a Superpower that produced incorrect, misleading, or low-quality output.
+title: "[Bug] <superpower>: <short summary>"
+labels: ["type:bug", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Confirmed bugs become **new eval cases** before they're closed — that's how the collection's quality compounds. Please include the transcript so we can reproduce.
+  - type: input
+    id: superpower
+    attributes:
+      label: Which Superpower?
+      placeholder: unity-debugging-expert
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Which surface?
+      options:
+        - SKILL.md (Claude Code)
+        - prompt.md (Claude.ai / API / other LLM)
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Input you gave
+      description: The message + any artifacts (stack trace, logs, code, Unity version, platform).
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What it produced (transcript)
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What a correct/better response looks like
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: Unity version, render pipeline, platform; which model/client you used.

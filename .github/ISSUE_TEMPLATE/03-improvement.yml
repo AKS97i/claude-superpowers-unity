@@ -1,0 +1,25 @@
+name: ✨ Improvement
+description: Suggest an enhancement to an existing Superpower, doc, or template.
+title: "[Improvement] <area>: <short summary>"
+labels: ["type:enhancement", "status:needs-triage"]
+body:
+  - type: input
+    id: area
+    attributes:
+      label: What does this affect?
+      description: A Superpower name, a doc path, or a template.
+      placeholder: unity-debugging-expert / docs/authoring-guide.md
+    validations:
+      required: true
+  - type: textarea
+    id: improvement
+    attributes:
+      label: Proposed improvement
+      description: What should change, and why is it better?
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Expected impact
+      description: Who benefits and how? Does it affect triggering, accuracy, or usefulness?

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussion / proposal brainstorming
+    url: https://github.com/AKS97i/claude-superpowers-unity/discussions
+    about: Ask questions, brainstorm Superpower ideas, or discuss methodology before opening a formal proposal.
+  - name: 📖 Read the Authoring Guide first
+    url: https://github.com/AKS97i/claude-superpowers-unity/blob/main/docs/authoring-guide.md
+    about: Learn how Superpowers are designed before proposing or authoring one.

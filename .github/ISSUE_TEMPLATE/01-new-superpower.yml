@@ -1,0 +1,107 @@
+name: 🦸 New Superpower proposal
+description: Propose a new AI Engineering System for the catalog.
+title: "[Superpower] <name>"
+labels: ["type:proposal", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a Superpower! Please provide the seven catalog fields so we can scope it and avoid duplicates. See the [catalog](../blob/main/docs/catalog.md) and [philosophy](../blob/main/docs/philosophy.md) first.
+        Remember: **one Superpower = one job.**
+  - type: input
+    id: name
+    attributes:
+      label: Proposed name
+      description: kebab-case, pattern `unity-<domain>-<role>` (see naming conventions).
+      placeholder: unity-performance-strategist
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Debugging
+        - Code Review
+        - Architecture
+        - Performance
+        - Memory
+        - Addressables
+        - Build Systems
+        - Rendering
+        - Shader Development
+        - Mobile Optimization
+        - Multiplayer
+        - Netcode
+        - AI Gameplay
+        - Animation
+        - Physics
+        - UI
+        - Editor Tooling
+        - Asset Management
+        - Profiling
+        - CI/CD
+        - Technical Leadership
+        - Testing
+        - New category (explain below)
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose
+      description: One or two sentences. What single job does it do?
+    validations:
+      required: true
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Target audience
+      options:
+        - All (indie + studio)
+        - Indie / solo primarily
+        - Studio primarily
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Typical inputs
+      description: What does the user provide?
+    validations:
+      required: true
+  - type: textarea
+    id: outputs
+    attributes:
+      label: Expected outputs
+      description: What does the Superpower return?
+    validations:
+      required: true
+  - type: dropdown
+    id: value
+    attributes:
+      label: Estimated engineering value (1–5)
+      options: ["5", "4", "3", "2", "1"]
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Suggested implementation priority
+      options: ["P0", "P1", "P2", "P3"]
+    validations:
+      required: true
+  - type: textarea
+    id: methodology
+    attributes:
+      label: Methodology sketch (optional but encouraged)
+      description: How should an expert reason about this? Even a rough pipeline helps.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I checked the catalog and this isn't a duplicate.
+          required: true
+        - label: This is one job, not several.
+          required: true

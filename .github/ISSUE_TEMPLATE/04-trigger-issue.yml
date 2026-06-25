@@ -1,0 +1,39 @@
+name: 🎯 Trigger issue (skill mis-fired or didn't fire)
+description: Report a Claude Code skill that activated when it shouldn't have, or failed to activate when it should have.
+title: "[Trigger] <superpower>: <fired when shouldn't | didn't fire>"
+labels: ["type:bug", "area:triggering", "status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Triggering is driven by the `SKILL.md` `description`. These reports help us tune it. See [naming conventions](../blob/main/docs/naming-conventions.md#the-skillmd-description-most-important-string-in-the-repo).
+  - type: input
+    id: superpower
+    attributes:
+      label: Which Superpower?
+      placeholder: unity-debugging-expert
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What happened?
+      options:
+        - Did NOT fire when it should have (false negative)
+        - Fired when it should NOT have (false positive)
+    validations:
+      required: true
+  - type: textarea
+    id: prompt
+    attributes:
+      label: The user message that you typed
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: What you expected
+      description: Should it have fired? If a false positive, which skill (if any) should have handled it instead?
+    validations:
+      required: true

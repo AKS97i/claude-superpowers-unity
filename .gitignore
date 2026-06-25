@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*~
+
+# Node / tooling (for optional lint/eval scripts)
+node_modules/
+.cache/
+*.log
+
+# Local Claude Code working dirs (we ship skills under superpowers/, not here)
+.claude/
+
+# Temp & build artifacts
+tmp/
+dist/
+*.tmp
