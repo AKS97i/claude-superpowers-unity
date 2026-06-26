@@ -1,103 +1,31 @@
 name: Validate Superpowers
 
 # Structural validation so human reviewers can focus on the quality of the
-# reasoning encoded. See docs/testing-superpowers.md (layer 4).
+# reasoning encoded. The checks live in scripts/validate.py so they run
+# identically locally (`python scripts/validate.py`) and in CI.
+# See docs/testing-superpowers.md (layer 4).
 
 on:
   pull_request:
     paths:
       - "superpowers/**"
+      - "scripts/validate.py"
       - ".github/workflows/validate.yml"
   push:
     branches: [main]
     paths:
       - "superpowers/**"
+      - "scripts/validate.py"
+      - ".github/workflows/validate.yml"
 
 jobs:
   structure:
-    name: Structure & frontmatter
+    name: Structure, frontmatter, evals & triggers
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - name: Validate each Superpower
-        shell: python
-        run: |
-          import os, re, sys
-
-          ROOT = "superpowers"
-          REQUIRED_FILES = ["DESIGN.md", "SKILL.md", "prompt.md"]
-          REQUIRED_FM = ["name", "description"]
-          REQUIRED_META = ["version", "stability", "category"]
-          REQUIRED_SKILL_SECTIONS = [
-              "When to use this skill",
-              "Methodology",
-              "Confidence model",
-              "Output format",
-          ]
-          VALID_STABILITY = {"experimental", "beta", "stable", "deprecated"}
-
-          errors = []
-
-          if not os.path.isdir(ROOT):
-              print("No superpowers/ directory yet — nothing to validate.")
-              sys.exit(0)
-
-          # A Superpower dir is any dir containing a SKILL.md
-          superpowers = []
-          for dirpath, _, files in os.walk(ROOT):
-              if "SKILL.md" in files:
-                  superpowers.append(dirpath)
-
-          if not superpowers:
-              print("No Superpowers found under superpowers/.")
-              sys.exit(0)
-
-          for sp in superpowers:
-              name = os.path.relpath(sp, ROOT)
-
-              # 1) required files
-              for f in REQUIRED_FILES:
-                  if not os.path.isfile(os.path.join(sp, f)):
-                      errors.append(f"{name}: missing required file {f}")
-
-              # 2) examples >= 1, evals >= 2
-              ex = os.path.join(sp, "examples")
-              ev = os.path.join(sp, "evals")
-              n_ex = len([x for x in os.listdir(ex) if x.endswith(".md")]) if os.path.isdir(ex) else 0
-              n_ev = len([x for x in os.listdir(ev) if x.endswith(".md")]) if os.path.isdir(ev) else 0
-              if n_ex < 1:
-                  errors.append(f"{name}: needs >=1 example in examples/ (found {n_ex})")
-              if n_ev < 2:
-                  errors.append(f"{name}: needs >=2 evals in evals/ (found {n_ev})")
-
-              # 3) SKILL.md frontmatter + sections
-              skill_path = os.path.join(sp, "SKILL.md")
-              if os.path.isfile(skill_path):
-                  text = open(skill_path, encoding="utf-8").read()
-                  m = re.match(r"^---\n(.*?)\n---\n", text, re.S)
-                  if not m:
-                      errors.append(f"{name}: SKILL.md missing YAML frontmatter")
-                  else:
-                      fm = m.group(1)
-                      for key in REQUIRED_FM:
-                          if not re.search(rf"^{key}\s*:", fm, re.M):
-                              errors.append(f"{name}: SKILL.md frontmatter missing '{key}'")
-                      for key in REQUIRED_META:
-                          if not re.search(rf"^\s+{key}\s*:", fm, re.M):
-                              errors.append(f"{name}: SKILL.md metadata missing '{key}'")
-                      sm = re.search(r"^\s+stability\s*:\s*([A-Za-z]+)", fm, re.M)
-                      if sm and sm.group(1) not in VALID_STABILITY:
-                          errors.append(f"{name}: invalid stability '{sm.group(1)}'")
-                  for sec in REQUIRED_SKILL_SECTIONS:
-                      if sec not in text:
-                          errors.append(f"{name}: SKILL.md missing section '{sec}'")
-
-          if errors:
-              print("Validation failed:\n")
-              for e in errors:
-                  print(" -", e)
-              sys.exit(1)
-          print(f"OK — {len(superpowers)} Superpower(s) validated.")
+      - name: Validate Superpowers
+        run: python scripts/validate.py

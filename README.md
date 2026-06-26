@@ -2,6 +2,7 @@
 
 # 🎮 Claude Superpowers — Unity
 
+<!-- markdownlint-disable-next-line MD001 MD026 -- styled hero subtitle, intentionally h3 with a period -->
 ### AI Engineering Systems that turn Claude into an elite Unity engineering team.
 
 **Debugging · Code Review · Architecture · Performance · Rendering · Netcode · Build & Ship**
@@ -10,7 +11,7 @@
 [![Superpowers](https://img.shields.io/badge/superpowers-1%20live%20%2F%2061%20planned-blueviolet.svg)](docs/catalog.md)
 [![Status](https://img.shields.io/badge/status-v0.1%20foundation-orange.svg)](docs/roadmap.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Unity](https://img.shields.io/badge/Unity-2021_LTS_→_6-000.svg)](#compatibility)
+[![Unity](https://img.shields.io/badge/Unity-2021_LTS_→_6-000.svg)](#-compatibility)
 
 *Not a plugin. Not a package. Not an asset.*
 *A library of structured engineering methodologies that give Claude the judgment of a senior Unity team.*

@@ -15,24 +15,28 @@ A realistic input plus a **rubric**. The rubric is a list of checks in three buc
 
 Rubrics are written so an LLM-as-judge (or a human) can score pass/fail per item. This aligns with the `skill-creator` eval tooling available in Claude Code.
 
-### 2. Trigger tests — required
-Lists of phrasings that **should** invoke the skill and phrasings that **should not**. This protects the `description` (the single most failure-prone string). Example for the Debugging Expert:
+### 2. Trigger tests — required (`triggers.md`)
+A `triggers.md` file per Superpower listing phrasings that **should** invoke the skill and phrasings that **should not**. This protects the `description` (the single most failure-prone string). The file format is fixed and machine-checked (see [`templates/triggers.template.md`](../templates/triggers.template.md)): a `## Should fire (positive triggers)` heading with ≥3 quoted phrasings and a `## Should not fire (negative triggers)` heading with ≥2, each negative naming the sibling Superpower that should handle it. Example for the Debugging Expert:
 
 - ✅ should fire: "Unity throws NullReferenceException on scene load", "works in editor but not in my Android build"
 - ❌ should not fire: "how do I make my game faster" (that's the Performance Strategist), "review my code for style"
+
+Each negative trigger should also have a matching scored eval with `should-fire: false` so the boundary is exercised, not just documented.
 
 ### 3. Golden example transcripts (`examples/*.md`) — required, ≥1
 Maintainer-reviewed end-to-end sessions. They document the Superpower *and* serve as regression anchors and eval inputs.
 
 ### 4. Structural CI — automated
-The `.github/workflows/validate.yml` workflow checks mechanics so humans focus on substance:
+The checks live in [`scripts/validate.py`](../scripts/validate.py) — a single source of truth that runs identically **locally** (`python scripts/validate.py`, or pass a path to check one Superpower) and in CI via `.github/workflows/validate.yml`. It checks mechanics so humans focus on substance:
 
-- Frontmatter schema (`name`, `description`, `metadata.version`, `metadata.stability`, `metadata.category`).
-- Required files present (`DESIGN.md`, `SKILL.md`, `prompt.md`, ≥1 example, ≥2 evals).
+- Frontmatter schema (`name`, `description`, `metadata.version`, `metadata.stability`, `metadata.category`; `stability` is a known value).
+- Required files present (`DESIGN.md`, `SKILL.md`, `prompt.md`, `triggers.md`, ≥1 example, ≥2 evals).
 - Required `SKILL.md` sections present.
-- Link integrity (no broken relative links).
-- `SKILL.md` ↔ `prompt.md` core-section parity (warn on drift).
-- Markdown lint.
+- **Eval structure** — every `evals/*.md` has the required sections (`Input`, `Expected triggering`, `Rubric` with `MUST` / `MUST NOT` / `Confidence disclosure`) and a `should-fire: true|false` line.
+- **Trigger structure** — `triggers.md` has the positive/negative headings with the minimum number of entries.
+- Markdown lint (separate `markdownlint.yml` workflow).
+
+> The validator is intentionally structural — it does not judge the *content* of a rubric or trigger. That's what layers 1–3 (and human review) are for.
 
 ## Eval file format
 
@@ -65,7 +69,7 @@ should-fire: true | false
 2. **`skill-creator` tooling:** use Claude Code's `skill-creator` skill to benchmark and measure triggering accuracy and behavior with variance analysis.
 3. **CI (structural):** runs automatically on every PR.
 
-> Behavioral evals (layers 1–3) are run by the author and reviewer today; an automated behavioral harness is a roadmap item (M1). Structural checks (layer 4) are automated now.
+> **Harness status (finalized in M1):** the eval/trigger *conventions* and the *structural* harness (layer 4, `scripts/validate.py`) are finalized and enforced in CI. Behavioral judging (layers 1–3) is run by the author and reviewer using LLM-as-judge / `skill-creator` against the rubrics — it is deliberately **not** wired into CI, because that would require model access on every PR; running it is a documented author/reviewer step, not an automated gate.
 
 ## The regression rule
 

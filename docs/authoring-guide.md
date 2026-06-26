@@ -21,6 +21,7 @@ mkdir -p superpowers/<category>/<name>/{references,examples,evals}
 cp templates/DESIGN.template.md   superpowers/<category>/<name>/DESIGN.md
 cp templates/SKILL.template.md    superpowers/<category>/<name>/SKILL.md
 cp templates/prompt.template.md   superpowers/<category>/<name>/prompt.md
+cp templates/triggers.template.md superpowers/<category>/<name>/triggers.md
 cp templates/eval.template.md     superpowers/<category>/<name>/evals/<scenario>.md
 ```
 
@@ -125,11 +126,17 @@ A worked **before → investigation → after** narrative using a realistic (red
 
 ---
 
-## Step 7 — Add `evals/` (≥2)
+## Step 7 — Add `evals/` (≥2) and `triggers.md`
 
-See [testing-superpowers.md](testing-superpowers.md). Each eval = realistic input + a rubric of **must-do / must-not-do / confidence-disclosure** checks. Include should-fire and should-not-fire trigger phrasings.
+See [testing-superpowers.md](testing-superpowers.md). Each eval = realistic input + a rubric of **must-do / must-not-do / confidence-disclosure** checks, plus a `should-fire: true|false` line. Fill in `triggers.md` (positive + negative phrasings), and give each negative trigger a matching `should-fire: false` eval so the boundary is scored, not just listed.
 
-Run your Superpower against the evals and fix what fails **before** opening the PR.
+Validate structure locally and fix what fails **before** opening the PR:
+
+```bash
+python scripts/validate.py superpowers/<category>/<name>
+```
+
+Then run your Superpower against the eval rubrics (LLM-as-judge / `skill-creator`) and fix any rubric failures.
 
 ---
 

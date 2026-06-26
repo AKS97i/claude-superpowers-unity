@@ -10,6 +10,28 @@ changelog tracks the collection as a whole. See [docs/versioning.md](docs/versio
 
 ## [Unreleased]
 
+### Added — Hardening (M1, in progress)
+
+- **Unity Debugging Expert evals** expanded from 2 to 10, covering serialization
+  rename data-loss, destroyed-object access (`==`/`?.` traps), stale statics under
+  disabled Domain Reload, Awake-vs-Start execution order, intermittent/heisenbug
+  discipline, object-pool stale state, and two negative-trigger (handoff) boundary cases.
+- **Worked example** added: singleton null on the second Play (Enter Play Mode Options).
+- **Showcase conversations** (textual): coroutine-respawn diagnosis and the
+  vague-"crashes sometimes" honest-intake session, linked from the showcase README.
+- **Eval harness conventions finalized:** required per-Superpower `triggers.md`
+  (with `templates/triggers.template.md`), and a runnable structural validator
+  (`scripts/validate.py`) that checks frontmatter, required files, eval section
+  structure, and trigger files — used by CI and runnable locally.
+- Authoring guide and testing strategy updated for the finalized conventions.
+
+### Notes
+
+- Unity Debugging Expert remains `beta`. Remaining gate for `stable`: captured
+  showcase media and field validation (see
+  `showcases/unity-debugging-expert/README.md`). On promotion, bump its `SKILL.md`
+  / `DESIGN.md` metadata to `0.2.0` + `stability: stable`.
+
 ## [0.1.0] — 2026-06-25
 
 ### Added — Foundation (M0)

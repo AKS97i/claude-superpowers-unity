@@ -1,10 +1,3 @@
-<!--
-SKILL.template.md — copy to superpowers/<category>/<name>/SKILL.md
-
-Production-ready Claude Code Skill. Keep the body LEAN; push depth into
-references/ (progressive disclosure). The `description` decides triggering —
-see docs/naming-conventions.md. Delete comments + placeholders before committing.
--->
 ---
 name: <unity-domain-role>
 description: <Third person. What it does + WHEN to use it. List concrete inputs/scenarios and trigger phrases. See docs/naming-conventions.md.>
@@ -13,6 +6,15 @@ metadata:
   stability: experimental   # experimental | beta | stable
   category: <category>
 ---
+
+<!--
+SKILL.template.md — copy to superpowers/<category>/<name>/SKILL.md
+Keep YAML frontmatter as the very first bytes of the file (no comment above it).
+
+Production-ready Claude Code Skill. Keep the body LEAN; push depth into
+references/ (progressive disclosure). The `description` decides triggering —
+see docs/naming-conventions.md. Delete comments + placeholders before committing.
+-->
 
 # <Human Title>
 
@@ -34,7 +36,7 @@ metadata:
 <The named levels, briefly — full thresholds live in DESIGN.md / references.>
 
 ## Output format
-```
+```text
 <the exact report template to produce>
 ```
 
