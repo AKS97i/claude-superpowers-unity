@@ -1,4 +1,4 @@
-# The Claude Superpowers Ecosystem
+# The Superpowers Ecosystem
 
 This repository is the **first of a family**. Its architecture is deliberately generic so that sibling repositories can reuse the same structure, documentation style, templates, testing model, and governance — only the *domain content* changes.
 
@@ -6,12 +6,12 @@ This repository is the **first of a family**. Its architecture is deliberately g
 
 | Repository | Domain |
 | --- | --- |
-| `claude-superpowers-unity` | Unity game development *(this repo)* |
-| `claude-superpowers-web` | Web / frontend engineering |
-| `claude-superpowers-qa` | Quality assurance & test engineering |
-| `claude-superpowers-game-design` | Game & systems design |
-| `claude-superpowers-backend` | Backend / distributed systems |
-| `claude-superpowers-devops` | DevOps / infrastructure / CI-CD |
+| `superpowers-unity` | Unity game development *(this repo)* |
+| `superpowers-web` | Web / frontend engineering |
+| `superpowers-qa` | Quality assurance & test engineering |
+| `superpowers-game-design` | Game & systems design |
+| `superpowers-backend` | Backend / distributed systems |
+| `superpowers-devops` | DevOps / infrastructure / CI-CD |
 
 ## The shared blueprint
 

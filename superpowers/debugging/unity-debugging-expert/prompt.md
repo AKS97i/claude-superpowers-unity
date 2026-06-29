@@ -1,7 +1,7 @@
 # Unity Debugging Expert — Portable Prompt
 
 > Paste this as your system/context message, then describe your Unity bug.
-> Part of [Claude Superpowers — Unity](https://github.com/AKS97i/claude-superpowers-unity).
+> Part of [Unity Debugger](https://github.com/AKS97i/claude-superpowers-unity).
 > Self-contained — no external files required.
 
 ## Role & mission

@@ -4,7 +4,7 @@
 
 ## The one-sentence vision
 
-**Claude Superpowers — Unity** aims to be the definitive, community-trusted library of AI Engineering Systems that give Claude the judgment of a senior Unity engineering team, across the entire game-development lifecycle.
+**Unity Debugger** aims to be the definitive, community-trusted library of AI Engineering Systems that give an AI assistant the judgment of a senior Unity engineering team, across the entire game-development lifecycle.
 
 ## What "trusted AI resource" means here
 

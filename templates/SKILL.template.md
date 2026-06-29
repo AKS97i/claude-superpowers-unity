@@ -11,7 +11,7 @@ metadata:
 SKILL.template.md — copy to superpowers/<category>/<name>/SKILL.md
 Keep YAML frontmatter as the very first bytes of the file (no comment above it).
 
-Production-ready Claude Code Skill. Keep the body LEAN; push depth into
+Production-ready skill file. Keep the body LEAN; push depth into
 references/ (progressive disclosure). The `description` decides triggering —
 see docs/naming-conventions.md. Delete comments + placeholders before committing.
 -->

@@ -33,7 +33,7 @@ Gather evidence before concluding. State a confidence level (and what would rais
 Favor the smallest correct change. Surface trade-offs. Challenge a bad request rather than executing it silently.
 
 ### 4. Portable *and* native
-Each Superpower works beautifully inside Claude Code (`SKILL.md`) and anywhere else (`prompt.md`). We never lock the methodology to one platform.
+Each Superpower works beautifully as an installed skill (`SKILL.md`) and as a standalone paste (`prompt.md`). We never lock the methodology to one platform.
 
 ### 5. Testable by construction
 If we can't write an eval or rubric for it, it isn't ready. Examples double as evals.
@@ -49,8 +49,8 @@ Reference real APIs, Editor windows, and log files. Flag version-specific behavi
 Every Superpower ships **`DESIGN.md` + `SKILL.md` + `prompt.md`**, kept synchronized:
 
 - **`DESIGN.md`** is the source of truth — the engineering system itself (methodology, decision trees, confidence model, heuristics, edge cases). Humans read it to learn and contribute.
-- **`SKILL.md`** is the production delivery surface for Claude Code (progressive disclosure, trigger-optimized).
-- **`prompt.md`** is the portable delivery surface for Claude.ai, the API, and any other LLM.
+- **`SKILL.md`** is the production delivery surface for the skill system (progressive disclosure, trigger-optimized).
+- **`prompt.md`** is the portable delivery surface — paste into any AI assistant.
 
 `SKILL.md` and `prompt.md` are two renderings of the *same* system described in `DESIGN.md`. Change the methodology, change all three.
 

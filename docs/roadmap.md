@@ -50,8 +50,8 @@ The collection becomes a dependable standard.
 
 - **Playbooks** — composite workflows chaining multiple Superpowers (e.g. "ship a mobile build" = perf → build-size → platform-troubleshoot).
 - **Optional tooling** — helper scripts (log parsers), and later Unity-MCP / editor hooks for live inspection. Always additive, never required.
-- **Claude Code plugin packaging** — once the plugin ecosystem stabilizes, distribute as an installable plugin/marketplace. Deliberately out of scope until then.
-- **Ecosystem siblings** — `claude-superpowers-{web,qa,game-design,backend,devops}` sharing this architecture. See [ecosystem.md](ecosystem.md).
+- **Skill system plugin packaging** — once the plugin ecosystem stabilizes, distribute as an installable plugin/marketplace. Deliberately out of scope until then.
+- **Ecosystem siblings** — `superpowers-{web,qa,game-design,backend,devops}` sharing this architecture. See [ecosystem.md](ecosystem.md).
 - **Localization & multi-tool exports** once core Superpowers are stable.
 
 ## How priorities are decided

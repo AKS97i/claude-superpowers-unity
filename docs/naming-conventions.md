@@ -1,6 +1,6 @@
 # Naming Conventions
 
-Consistent naming makes Superpowers discoverable, prevents collisions, and — critically — makes Claude Code skill **auto-triggering** reliable. These rules are enforced in review and partly in CI.
+Consistent naming makes Superpowers discoverable, prevents collisions, and — critically — makes skill **auto-triggering** reliable. These rules are enforced in review and partly in CI.
 
 ## Superpower (skill) names
 
@@ -20,7 +20,7 @@ Consistent naming makes Superpowers discoverable, prevents collisions, and — c
 | File | Required | Purpose |
 | --- | --- | --- |
 | `DESIGN.md` | ✅ | The engineering system spec (source of truth). |
-| `SKILL.md` | ✅ | Claude Code Skill. |
+| `SKILL.md` | ✅ | Skill file. |
 | `prompt.md` | ✅ | Portable prompt. |
 | `references/*.md` | as needed | Deep checklists/heuristics (kebab-case). |
 | `examples/*.md` | ✅ (≥1) | Worked narratives (kebab-case, scenario-named). |
@@ -30,7 +30,7 @@ Consistent naming makes Superpowers discoverable, prevents collisions, and — c
 
 ## The `SKILL.md` `description` (most important string in the repo)
 
-The `description` is what Claude Code uses to decide whether to invoke the skill. Get it wrong and the best methodology never fires.
+The `description` is what the skill system uses to decide whether to invoke the skill. Get it wrong and the best methodology never fires.
 
 Rules:
 

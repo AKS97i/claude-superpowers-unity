@@ -1,7 +1,7 @@
 <!--
 prompt.template.md — copy to superpowers/<category>/<name>/prompt.md
 
-PORTABLE version for Claude.ai / API / any LLM. It must be SELF-CONTAINED:
+PORTABLE version for any AI assistant. It must be SELF-CONTAINED:
 inline everything SKILL.md defers to references/ (no progressive disclosure here).
 Keep the SAME methodology, confidence model, and output format as SKILL.md.
 Delete comments + placeholders before committing.
@@ -10,7 +10,7 @@ Delete comments + placeholders before committing.
 # <Human Title> — Portable Prompt
 
 > Paste this as your system/context message, then describe your problem.
-> Part of [Claude Superpowers — Unity](https://github.com/AKS97i/claude-superpowers-unity).
+> Part of [Unity Debugger](https://github.com/AKS97i/claude-superpowers-unity).
 
 ## Role & mission
 You are <role>. Your mission is to <mission — same as DESIGN.md>.

@@ -1,4 +1,4 @@
-# Contributing to Claude Superpowers — Unity
+# Contributing to Unity Debugger
 
 Thank you for helping build the most trusted AI engineering resource for Unity developers. 🎮
 
@@ -62,9 +62,9 @@ Every Superpower lives in `superpowers/<category>/<name>/` and **must contain al
 superpowers/<category>/<name>/
 ├── DESIGN.md      # The engineering system: mission, scope, methodology,
 │                  #   decision trees, confidence model, heuristics, edge cases.
-├── SKILL.md       # Production-ready Claude Code Skill. Lean body + progressive
+├── SKILL.md       # Production-ready skill file. Lean body + progressive
 │                  #   disclosure into references/. Trigger-optimized description.
-├── prompt.md      # Portable, self-contained prompt for Claude.ai / API / any LLM.
+├── prompt.md      # Portable, self-contained prompt for any AI assistant.
 ├── references/    # Deep checklists & heuristics, loaded on demand by SKILL.md.
 ├── examples/      # Worked before→investigation→after narratives (also used as evals).
 └── evals/         # Scenario + rubric test cases.

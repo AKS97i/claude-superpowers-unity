@@ -83,7 +83,7 @@ metadata:
 
 Rules:
 
-- **Keep the body lean.** Long checklists and heuristic tables go into `references/` and are referenced by name. Claude loads them only when relevant. This keeps triggering reliable and context cheap.
+- **Keep the body lean.** Long checklists and heuristic tables go into `references/` and are referenced by name. They are loaded only when relevant. This keeps triggering reliable and context cheap.
 - **The `description` is critical** — see [naming-conventions.md](naming-conventions.md#the-skillmd-description-most-important-string-in-the-repo).
 - **Make the output format explicit.** Consistent, structured output is half the value.
 - **Bake in honesty.** Instruct the skill to state confidence and ask for missing inputs rather than guessing.
@@ -92,7 +92,7 @@ Rules:
 
 ## Step 4 — Write `prompt.md` (portable, self-contained)
 
-The portable version must work when pasted into Claude.ai, the API, or another LLM **with no external files**. So:
+The portable version must work when pasted as a system prompt into any AI assistant **with no external files**. So:
 
 - **Inline the essentials** that `SKILL.md` defers to `references/` (the portable version has no progressive disclosure).
 - Keep the **same methodology, confidence model, and output format** as `SKILL.md`.
@@ -136,7 +136,7 @@ Validate structure locally and fix what fails **before** opening the PR:
 python scripts/validate.py superpowers/<category>/<name>
 ```
 
-Then run your Superpower against the eval rubrics (LLM-as-judge / `skill-creator`) and fix any rubric failures.
+Then run your Superpower against the eval rubrics (AI-as-judge / `skill-creator`) and fix any rubric failures.
 
 ---
 

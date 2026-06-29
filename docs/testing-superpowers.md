@@ -13,7 +13,7 @@ A realistic input plus a **rubric**. The rubric is a list of checks in three buc
 - **MUST NOT do** — e.g. "does not fabricate a fix without evidence", "does not claim Confirmed without a verified repro".
 - **Confidence disclosure** — e.g. "states what additional evidence would raise confidence".
 
-Rubrics are written so an LLM-as-judge (or a human) can score pass/fail per item. This aligns with the `skill-creator` eval tooling available in Claude Code.
+Rubrics are written so an AI-as-judge (or a human) can score pass/fail per item. This aligns with the `skill-creator` eval tooling.
 
 ### 2. Trigger tests — required (`triggers.md`)
 A `triggers.md` file per Superpower listing phrasings that **should** invoke the skill and phrasings that **should not**. This protects the `description` (the single most failure-prone string). The file format is fixed and machine-checked (see [`templates/triggers.template.md`](../templates/triggers.template.md)): a `## Should fire (positive triggers)` heading with ≥3 quoted phrasings and a `## Should not fire (negative triggers)` heading with ≥2, each negative naming the sibling Superpower that should handle it. Example for the Debugging Expert:
@@ -65,11 +65,11 @@ should-fire: true | false
 
 ## How to run evals
 
-1. **Manual / LLM-as-judge:** paste the eval `Input` into Claude (with the Superpower active via `SKILL.md`, or `prompt.md` pasted), capture the response, and score it against the rubric. A second Claude session can act as judge using the rubric.
-2. **`skill-creator` tooling:** use Claude Code's `skill-creator` skill to benchmark and measure triggering accuracy and behavior with variance analysis.
+1. **Manual / AI-as-judge:** paste the eval `Input` into your AI assistant (with the Superpower active via `SKILL.md`, or `prompt.md` pasted), capture the response, and score it against the rubric. A second session can act as judge using the rubric.
+2. **`skill-creator` tooling:** use the `skill-creator` skill to benchmark and measure triggering accuracy and behavior with variance analysis.
 3. **CI (structural):** runs automatically on every PR.
 
-> **Harness status (finalized in M1):** the eval/trigger *conventions* and the *structural* harness (layer 4, `scripts/validate.py`) are finalized and enforced in CI. Behavioral judging (layers 1–3) is run by the author and reviewer using LLM-as-judge / `skill-creator` against the rubrics — it is deliberately **not** wired into CI, because that would require model access on every PR; running it is a documented author/reviewer step, not an automated gate.
+> **Harness status (finalized in M1):** the eval/trigger *conventions* and the *structural* harness (layer 4, `scripts/validate.py`) are finalized and enforced in CI. Behavioral judging (layers 1–3) is run by the author and reviewer using AI-as-judge / `skill-creator` against the rubrics — it is deliberately **not** wired into CI, because that would require model access on every PR; running it is a documented author/reviewer step, not an automated gate.
 
 ## The regression rule
 
