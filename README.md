@@ -82,7 +82,7 @@ checklists/
 
 ## Installation
 
-### Option A — Claude Code (project-level)
+### Option A — Skills directory (project-level)
 
 ```bash
 git clone https://github.com/AKS97i/claude-superpowers-unity.git
@@ -92,9 +92,9 @@ cp -R claude-superpowers-unity/superpowers/debugging/unity-debugging-expert \
       .claude/skills/unity-debugger
 ```
 
-Then describe your Unity bug in any Claude Code session. The skill is invoked automatically when you share an error message, stack trace, or describe a Unity bug.
+Describe your Unity bug in any session. The skill is invoked automatically when you share an error message, stack trace, or describe a Unity bug.
 
-### Option B — Claude Code (user-level, all projects)
+### Option B — Skills directory (user-level, all projects)
 
 ```bash
 mkdir -p ~/.claude/skills
@@ -102,7 +102,7 @@ cp -R claude-superpowers-unity/superpowers/debugging/unity-debugging-expert \
       ~/.claude/skills/unity-debugger
 ```
 
-### Option C — Claude.ai, the API, or any other LLM
+### Option C — Paste as system prompt
 
 Open `superpowers/debugging/unity-debugging-expert/SKILL.md` and paste it as the system prompt. No installation required.
 
